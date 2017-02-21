@@ -1,7 +1,7 @@
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 fun! ToggleFullscreen()
-	call system("wmctrl -ir ".v:windowid." -b toggle,fullscreen")
+	call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
 map <silent><F11>		: call ToggleFullscreen()<CR>
 autocmd VimEnter * call ToggleFullscreen()
@@ -30,6 +30,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'kshenoy/vim-signature'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype indent on
 filetype plugin on
@@ -50,3 +51,11 @@ set hlsearch
 
 " vim-fswitch
 nmap <silent><Leader>sw : FSHere<CR>
+
+" YouCompleteMe
+let g:ycm_complete_in_comments=1
+let g:ycm_confirm_extra_conf=0
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_cache_omnifunc=0
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_collect_from_tags_files=1
